@@ -1,9 +1,7 @@
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Streams vereinfachen das Arbeiten mit Collections und Arrays. Anstatt mit Hilfe
@@ -47,7 +45,7 @@ public class Introduction_Streams {
         thirdExample();
 
         /**
-         * Für mehr Informationen beachte das PDF Dokument.
+         * Für mehr Informationen zu den einzelnen Operationen/Methoden beachte die Lehrunterlagen und die API Dokumentation.
          *
          * Stream Interface: @link https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html
          * IntStream Interface:  @link https://docs.oracle.com/javase/8/docs/api/java/util/stream/IntStream.html
@@ -55,21 +53,6 @@ public class Introduction_Streams {
          * DoubleStream Interface @link https://docs.oracle.com/javase/8/docs/api/java/util/stream/DoubleStream.html
          */
 
-        Set<Person2> people = Set.of(new Person2("Julia"), new Person2("Romeo"));
-        System.out.println(people.stream().map(Person2::getName).collect(toSet()));
-
-    }
-
-    public static class Person2 {
-        private String name;
-
-        public Person2(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
     }
 
 
@@ -115,8 +98,8 @@ public class Introduction_Streams {
            Das Interface Stream definiert einen Stream von Objekten.
            In diesem Beispiel ein Stream von Integer Objekten.
 
-           Dieses Interface besitzt aber keine sum() Methode. Für die primitiven Datentypen int,long und double
-           existieren enstsprechende Streams: IntStream, LongStream und DoubleStream.
+           Dieses Interface besitzt aber keine sum() Methode. Für die primitiven Datentypen int, long und double
+           existieren entsprechende Streams: IntStream, LongStream und DoubleStream.
            Diese besitzen eine sum() Methode.
 
            Die Methode mapToInt wandelt einen Stream in einen IntStream um. Der Lambda-Ausdruck gibt an,
@@ -129,10 +112,9 @@ public class Introduction_Streams {
     private static void thirdExample() {
         List<Person> people = List.of(new Person("Susanne", "Sonnenschein"), new Person("Manuel", "Mondlicht"), new Person("Willibald", "Wunderlich"));
 
-        List<String> firstNames= people.stream().map(e -> e.getFirstName()).collect(toList());
+        List<String> firstNames= people.stream().map(e -> e.getFirstName()).collect(Collectors.toList());
 
         System.out.println("third example: "+firstNames);
-
     }
 
 }
