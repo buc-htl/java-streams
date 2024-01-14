@@ -35,7 +35,7 @@ public class Introduction_Optionals {
            @link  https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions
 
            Ist nett, löst aber leider nicht unser Problem. Da es ein normaler Anwendungsfall ist, dass jemand
-           keine Kinder hat, kommt es in diesen Fällen meist zu folgenden Konstruktrukten.
+           keine Kinder hat, kommt es in diesen Fällen meist zu folgenden Konstrukten.
          */
 
         List<Person> children = p1.getChildren();
@@ -45,8 +45,8 @@ public class Introduction_Optionals {
             System.out.println(p1+" hat keine Kinder.");
         }
 
-        /* Das ist relativ viel Code, um eine möglichk null-Referenz abzufangen. Bei mehrfach verschachtelteten
-        Datenstrukturen werden immer mehr if-Answeisungen notwendig.
+        /* Das ist relativ viel Code, um eine mögliche null-Referenz abzufangen. Bei mehrfach verschachtelten
+        Datenstrukturen werden immer mehr if-Anweisungen notwendig.
 
         Um den Code zu vereinfachen wurden mit Java8 Optionals eingeführt.
          */

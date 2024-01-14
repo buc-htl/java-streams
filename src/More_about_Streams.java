@@ -63,12 +63,12 @@ public class More_about_Streams {
 
         String str = "Semmel";
 
-        //chars() wandelt einen String in einen stream von "characters" um. Da es aber keinen char Stream gibt, ist das Ergebnis von
+        //chars() wandelt einen String in einen Stream von "characters" um. Da es aber keinen char Stream gibt, ist das Ergebnis von
         // chars() ein IntStream.
-        int[] characters = str.chars().toArray();
+        IntStream stream = str.chars();
 
         //Diesen IntStream können wir auch wieder in einen String Stream umwandeln (int -> Character -> String)
-        String letters = str.chars().mapToObj(c -> String.valueOf(Character.toChars(c))).collect(Collectors.joining(", "));
+        String letters = stream.mapToObj(c -> String.valueOf(Character.toChars(c))).collect(Collectors.joining(", "));
         System.out.println("Buchstaben: "+letters);
 
     }
@@ -96,9 +96,9 @@ public class More_about_Streams {
         /* Stream --> Map */
 
        //Collectors.toMap() erzeugt aus den Elementen eines Streams eine Map.
-        // Die Methode hat (grundsätzlich) zwei Argumente:
-        // - eine Funktion, die den Key zurückgibt
-        // - und eine Funktion für den zugehörigen Wert (value).
+        // Die Methode hat (grundsätzlich) zwei Argumente:
+        // - eine Funktion, die den Key zurückgibt
+        // - und eine Funktion für den zugehörigen Wert (value).
         //
         //Im folgenden Beispiel ist der Schlüssel die Länge des Strings, der Wert der String selbst.
         Map<Integer, String> map = Stream.of("Karli", "Susi", "Ottokar")
@@ -114,7 +114,7 @@ public class More_about_Streams {
         }
 
         //Daher kann man Collectors.toMap() ein drittes Argument mitgeben -
-        // eine „Merger“-Funktion, die ausgeführt wird, wenn zwei Values dem gleichen Key zugeordnet werden sollen.
+        // eine „Merger“-Funktion, die ausgeführt wird, wenn zwei Values dem gleichen Key zugeordnet werden sollen.
         map = Stream.of("Karli", "Franz","Ottokar")
             .collect(Collectors.toMap(x->x.length(),x->x,
                 (oldValue, newValue)-> oldValue+", "+newValue));
